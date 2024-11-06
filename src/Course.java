@@ -1,13 +1,11 @@
-import java.util.Arrays;
-
-public class Cours {
+public class Course {
     String name;
     String nameTeacher;
     Students[] students;
 
-    public Cours(String name,String nameTeacher, Students[] students) {
+    public Course(String name,String nameTeacher, Students[] students) {
         if (name.length() <= 2) {
-            System.out.println("write name 2-word more !!!");
+            System.err.println("write name 2-word more !!!");
         } else {
             this.name = name;
             this.nameTeacher = nameTeacher;
@@ -16,14 +14,20 @@ public class Cours {
     }
 
     public void getInfoCourse(){
-        System.out.printf("""
+        if (this.name.length() > 2){
+            System.out.printf("""
                 Name Course   : %s
                 Name Teacher  : %s
+                
+                --==STUDENTS==--
+                
                 """,name,nameTeacher);
+        }else return;
+
         for (Students students1 : students){
             String failed;
-            if (students1.age == 0){
-                failed = "failed";
+            if (students1.age == 0 && students1.word == 0){
+                failed = "---FAILED---";
                 System.err.printf("""
         ------------------------
         Students  : %s
@@ -33,7 +37,7 @@ public class Cours {
         ------------------------
         """,failed,students1.name,students1.age,students1.word);
             }else {
-                 failed = "your win ";
+                 failed = "***YOUR WIN***";
                 System.out.printf("""
         ------------------------
         Students  : %s
