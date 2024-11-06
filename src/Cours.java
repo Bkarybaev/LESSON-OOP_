@@ -23,14 +23,15 @@ public class Cours {
         for (Students students1 : students){
             String failed;
             if (students1.age == 0){
+                failed = "failed";
                 System.err.printf("""
         ------------------------
-        Students  : failed
+        Students  : %s
         Name student : %s
         Age student  : %d
         Word one minute : %d wp
         ------------------------
-        """,students1.name,students1.age,students1.word);
+        """,failed,students1.name,students1.age,students1.word);
             }else {
                  failed = "your win ";
                 System.out.printf("""
